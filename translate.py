@@ -2,6 +2,10 @@
 
 # translate.py Encrypt and decrypt text with ciphers.
 #
+# Usage:
+# $ python3 translate.py caesar --key 3 > encrypted.txt
+# $ python3 translate.py caesar --decrypt --key 3 < encrypted.txt
+
 
 import argparse
 import logging
