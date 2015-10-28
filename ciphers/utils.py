@@ -18,7 +18,7 @@ class CipherValueError(ValueError):
     pass
 
 
-def import_cipher_module(cipher_name, module_name='translator'):
+def import_cipher_module(cipher_name, module_name='cipher'):
     cipher_module_name = 'ciphers.{0}.{1}'.format(cipher_name, module_name)
     try:
         return import_module(cipher_module_name)

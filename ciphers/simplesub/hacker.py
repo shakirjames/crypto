@@ -8,7 +8,7 @@ import pprint
 import re
 
 
-from . import translator
+from . import cipher
 from . import makewordpatterns
 
 from ..utils import LETTERS
@@ -160,7 +160,7 @@ def decryptWithCipherletterMapping(ciphertext, letterMapping):
     key = ''.join(key)
 
     # With the key we've created, decrypt the ciphertext.
-    return translator.decrypt(key, ciphertext)
+    return cipher.decrypt(key, ciphertext)
 
 
 if __name__ == '__main__':

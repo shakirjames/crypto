@@ -6,7 +6,7 @@ import re
 
 
 from . import freqanalysis
-from . import translator
+from . import cipher
 from ..cryptolib import detectenglish
 from ..utils import LETTERS
 
@@ -173,7 +173,7 @@ def attemptHackWithKeyLength(ciphertext, mostLikelyKeyLength):
         # See the englishFreqMatchScore() comments in freqanalysis.py.
         freqScores = []
         for possibleKey in LETTERS:
-            decryptedText = translator.decrypt(possibleKey, nthLetters)
+            decryptedText = cipher.decrypt(possibleKey, nthLetters)
             keyAndFreqMatchTuple = (possibleKey, freqanalysis.englishFreqMatchScore(decryptedText))
             freqScores.append(keyAndFreqMatchTuple)
         # Sort by match score
@@ -200,7 +200,7 @@ def attemptHackWithKeyLength(ciphertext, mostLikelyKeyLength):
         if not SILENT_MODE:
             print('Attempting with key: %s' % (possibleKey))
 
-        decryptedText = translator.decrypt(possibleKey, ciphertextUp)
+        decryptedText = cipher.decrypt(possibleKey, ciphertextUp)
 
         if detectenglish.isEnglish(decryptedText):
             # Set the hacked ciphertext to the original casing.

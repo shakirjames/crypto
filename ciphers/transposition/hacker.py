@@ -3,7 +3,7 @@
 
 #import pyperclip, detectEnglish, transpositionDecrypt
 
-from . import translator
+from . import cipher
 from ..cryptolib import detectenglish
 
 def main():
@@ -32,7 +32,7 @@ def hackTransposition(message):
     for key in range(1, len(message)):
         print('Trying key #%s...' % (key))
 
-        decryptedText = translator.decrypt(key, message)
+        decryptedText = cipher.decrypt(key, message)
 
         if detectenglish.isEnglish(decryptedText):
             # Check with user to see if the decrypted key has been found.
