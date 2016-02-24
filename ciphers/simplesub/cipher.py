@@ -26,8 +26,6 @@ def _translate(key, message, is_encrypting=False, letters=LETTERS):
             # encrypt/decrypt the symbol
             index = charsA.find(symbol.upper())
             translated_symbol = charsB[index]
-            logging.debug('symbol %s', symbol)
-            logging.debug('translated_symbol %s', translated_symbol)
             if symbol.isupper():
                 translated_symbol = translated_symbol.upper()
             else:
