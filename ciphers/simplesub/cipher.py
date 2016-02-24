@@ -14,20 +14,24 @@ def _translate(key, message, is_encrypting=False, letters=LETTERS):
     translated = []
     charsA = letters
     charsB = key
+
     if not is_encrypting:
+        logging.debug('Decrpyting')
         # For decrypting, we can use the same code as encrypting. We
         # just need to swap where the key and LETTERS strings are used.
         charsA, charsB = charsB, charsA
-    for symbol in message:
 
+    for symbol in message:
         if symbol.upper() in charsA:
             # encrypt/decrypt the symbol
             index = charsA.find(symbol.upper())
             translated_symbol = charsB[index]
+            logging.debug('symbol %s', symbol)
+            logging.debug('translated_symbol %s', translated_symbol)
             if symbol.isupper():
-                translated_symbol = symbol.upper()
+                translated_symbol = translated_symbol.upper()
             else:
-                translated_symbol = symbol.lower()
+                translated_symbol = translated_symbol.lower()
         else:
             translated_symbol = symbol
         translated.append(translated_symbol)
