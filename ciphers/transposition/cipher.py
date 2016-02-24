@@ -47,4 +47,4 @@ def get_random_key(message):
 
 
 if __name__ == '__main__':
-    cipher_main()
+    cipher_main(encrypt, decrypt, get_random_key)
