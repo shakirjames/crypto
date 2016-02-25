@@ -11,8 +11,10 @@ import re
 from . import cipher
 from . import makewordpatterns
 
-from ..utils import LETTERS
+from ..utils import LETTERS, hacker_main
 
+
+CIPHERTEXT = 'Sy l nlx sr pyyacao l ylwj eiswi upar lulsxrj isr sxrjsxwjr, ia esmm rwctjsxsza sj wmpramh, lxo txmarr jia aqsoaxwa sr pqaceiamnsxu, ia esmm caytra jp famsaqa sj. Sy, px jia pjiac ilxo, ia sr pyyacao rpnajisxu eiswi lyypcor l calrpx ypc lwjsxu sx lwwpcolxwa jp isr sxrjsxwjr, ia esmm lwwabj sj aqax px jia rmsuijarj aqsoaxwa. Jia pcsusx py nhjir sr agbmlsxao sx jisr elh. -Facjclxo Ctrramm'
 
 if not os.path.exists('wordPatterns.py'):
     makewordpatterns.main() # create the wordPatterns.py file
@@ -21,8 +23,7 @@ import wordPatterns
 nonLettersOrSpacePattern = re.compile('[^A-Z\s]')
 
 
-def main():
-    message = 'Sy l nlx sr pyyacao l ylwj eiswi upar lulsxrj isr sxrjsxwjr, ia esmm rwctjsxsza sj wmpramh, lxo txmarr jia aqsoaxwa sr pqaceiamnsxu, ia esmm caytra jp famsaqa sj. Sy, px jia pjiac ilxo, ia sr pyyacao rpnajisxu eiswi lyypcor l calrpx ypc lwjsxu sx lwwpcolxwa jp isr sxrjsxwjr, ia esmm lwwabj sj aqax px jia rmsuijarj aqsoaxwa. Jia pcsusx py nhjir sr agbmlsxao sx jisr elh. -Facjclxo Ctrramm'
+def hack(message=CIPHERTEXT):
 
     # Determine the possible valid ciphertext translations.
     print('Hacking...')
@@ -38,6 +39,7 @@ def main():
     #print('Copying hacked message to clipboard:')
     hackedMessage = decryptWithCipherletterMapping(message, letterMapping)
     #pyperclip.copy(hackedMessage)
+    print('Hacked message:')
     print(hackedMessage)
 
 
@@ -164,4 +166,4 @@ def decryptWithCipherletterMapping(ciphertext, letterMapping):
 
 
 if __name__ == '__main__':
-    main()
+    hacker_main(hack)

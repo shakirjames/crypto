@@ -52,3 +52,18 @@ def cipher_main(encrypt, decrypt, get_random_key):
         print(encrypt(args.key, args.message))
     else:
         print(decrypt(args.key, args.message))
+
+
+def hacker_main(hack):
+    parser = argparse.ArgumentParser(prog='hacker', description='Hacker')
+    parser.add_argument('-d', dest='debug', action='store_true')
+    parser.add_argument('message', nargs='?', type=argparse.FileType('r'))
+    args = parser.parse_args()
+
+    if args.debug:
+        logging.basicConfig(level=logging.DEBUG)
+    if args.message:
+        hack(args.message)
+    else:
+        hack()
+

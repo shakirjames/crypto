@@ -1,11 +1,12 @@
 # Based on  Caesar Cipher Hacker
 # http://inventwithpython.com/hacking (BSD Licensed)
 
-message = 'GUVF VF ZL FRPERG ZRFFNTR.'
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+from ..utils import LETTERS, hacker_main
+
+CIPHERTEXT = 'GUVF VF ZL FRPERG ZRFFNTR.'
 
 
-def main():
+def hack(message=CIPHERTEXT):
     for key in range(len(LETTERS)):
         translated = ''
         for symbol in message:
@@ -18,4 +19,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    hacker_main(hack)
