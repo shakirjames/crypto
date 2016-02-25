@@ -26,6 +26,9 @@ def _test(translate, num_runs=26):
 
         key = translate.get_random_key(message)
         encrypted = translate.encrypt(key, message)
+        if message == encrypted:
+            print('Message == encrypted')
+            sys.exit()
         decrypted = translate.decrypt(key, encrypted)
         if message != decrypted:
             print('Mistmatch with key %s and message %s' % (key, message))
