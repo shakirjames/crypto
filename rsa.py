@@ -33,7 +33,6 @@ def parser_args():
     parser = argparse.ArgumentParser(prog='rsa', description='Textbook RSA.')
     parser.add_argument('-d', dest='debug', action='store_true',
                         help='print debug information')
-    parser.set_defaults(func=None)
     subparsers = parser.add_subparsers(title='subcommands')
 
     # Create generate keys command parser
