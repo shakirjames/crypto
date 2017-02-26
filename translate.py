@@ -15,7 +15,7 @@ import time
 from ciphers.utils import import_cipher_module
 
 
-def parse_args(prog='cipher', description='Cipher.'):
+def parse_args(prog='translate', description='Translator.'):
     parser = argparse.ArgumentParser(prog=prog, description=description)
     parser.add_argument('-d', dest='debug', action='store_true')
     parser.add_argument('cipher', help='cipher name')
