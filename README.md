@@ -29,6 +29,7 @@ Test
 
 ### Primes
 
+    $ cd ciphers/cryptolib/
 
 Usage
 
@@ -41,6 +42,7 @@ Divide Test
 
 Rabin Miller Test
 
+    $ cd ciphers/cryptolib/
     $ python3 primes.py rabin_miller
 
 
